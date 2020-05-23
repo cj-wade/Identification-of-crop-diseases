@@ -143,12 +143,12 @@ def i_cbam(input_feature, ratio=2):
     concat = Concatenate(axis=3)([avg_pool, max_pool])
     assert concat._keras_shape[-1] == 2
     st = Conv2D(filters=1,
-                          kernel_size=kernel_size,
-                          activation='hard_sigmoid',
-                          strides=1,
-                          padding='same',
-                          kernel_initializer='he_normal',
-                          use_bias=False)(concat)
+                kernel_size=kernel_size,
+                activation='hard_sigmoid',
+                strides=1,
+                padding='same',
+                kernel_initializer='he_normal',
+                use_bias=False)(concat)
     assert st._keras_shape[-1] == 1
 
     if K.image_data_format() == "channels_first":
