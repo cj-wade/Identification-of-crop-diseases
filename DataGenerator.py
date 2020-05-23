@@ -94,39 +94,3 @@ class DataGenerator(keras.utils.Sequence):
             img = cv2.resize(img,(self.target_size[0],self.target_size[1]))
         img = img / 255
         return img
-
-
-# import time
-# start = time.time()
-# images = []
-# for i in range(len(valid)):
-#     _class = valid[i]['disease_class']
-#     _id = valid[i]['image_id']
-#     _class_dir = os.path.join(valid_dir, str(_class))
-#     image_path = os.path.join(_class_dir, _id)
-#     if not  read_img(image_path):
-#         images.append(image_path)
-# end = time.time()
-#
-#
-# def read_img(path):
-#     try:
-#         img = cv2.imdecode(np.fromfile(path, dtype=np.uint8), -1)
-#         img = cv2.resize(img,(224,224,3))
-#         img = img / 255
-#         preprocess(img)
-#     #             if self.is_train:
-#     #                 img = self.preprocess(img)
-#     except Exception as e:
-#         print(e)
-#     else:
-#         return img
-# #
-# def preprocess(img):
-#     # >0 水平翻转
-#     # =0 垂直翻转
-#     # <0 水平垂直翻转
-#     if random.random()>0.5:
-#         cv2.flip(img,1)
-#     if random.random()>0.5:
-#         cv2.flip(img,0)
